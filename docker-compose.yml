@@ -1,0 +1,38 @@
+version: "3.7"
+
+secrets:
+  aws-cnf:
+    file: /home/docker-user/backup/secrets/aws_config.txt
+  mysql-cnf:
+    file: /home/docker-user/backup/secrets/mysql_config.txt
+
+services:
+  backup:
+      container_name: backup
+      image: backup:latest
+      deploy:
+        resources:
+          limits:
+            cpus: '4.0'
+            memory: 15411634k
+      ports:
+        - 3308:3306
+      volumes:
+        - ./backup:/backup
+        - ./tar:/tar
+        - ./log:/log
+      build:
+        context: ./context
+        dockerfile: Dockerfile
+      environment:
+        - AWS_RETRY_MODE=standard
+        - AWS_MAX_ATTEMPTS=2
+      secrets:
+        - aws-cnf
+        - mysql-cnf
+      entrypoint:
+        - /opt/setup.sh
+
+networks:
+  default:
+    name: backup_bridge

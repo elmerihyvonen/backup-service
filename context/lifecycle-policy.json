@@ -1,0 +1,12 @@
+{
+    "Rules": [
+      {
+        "ID": "DeleteAll90",
+        "Status": "Enabled",
+        "Prefix": "",
+        "Expiration": {
+          "Days": 90
+        }
+      }
+    ]
+  }
