@@ -1,7 +1,7 @@
 # Backup service
 
 ![Architecture](https://github.com/elmerihyvonen/ImageService/blob/IS2/IS2.png?raw=true)
-Kokonaiskuva projektista [IS2](https://github.com/elmerihyvonen/ImageService/tree/IS2). Havainnollistaa samalla backup servicen roolin.
+Kokonaiskuva projektista [IS2](https://github.com/elmerihyvonen/ImageService/tree/IS2). Havainnollistaa samalla backup servicen toimintaa.
 
 
 
