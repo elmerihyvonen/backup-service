@@ -8,7 +8,7 @@ Kokonaiskuva projektista [IS2](https://github.com/elmerihyvonen/ImageService/tre
 * Tietokantojen varmuuskopiointia varten toteutettu docker image (mysql-8:debian), joka suorittaa samassa docker verkossa (backup bridge) olevien tietokantojen varmuuskopioinnin ajastetusti Linux Cron Job:ina. 
 * Kontti hakee käynnistyessään tarvittavat konffat aws_config.txt ja mysql_config.txt (Docker secrets)
 * mysqldump komennon --host parametrina voidaan käyttää docker networkin ip-osoitetta tai network aliasta (esim. servicen nimeä db)
-* Konttiin luodaan Cron scheduled job, joka suorittaa halutulla ajastuksella mysql_config.txt tiedostossa listattujen kantojen varmuuskopionnin. Käytännössä tämä tapahtuu suorittamalla dump.sh skriptiä. 
+* Konttiin luodaan Cron scheduled job, joka suorittaa halutulla ajastuksella mysql_config.txt tiedostossa listattujen kantojen varmuuskopionnin. Käytännössä tämä tapahtuu suorittamalla /context/dump.sh skriptiä. 
 * Skriptin perään suoritetaan automaattisesti /backup volumeen muodostuneiden .sql tiedostojen tar-paketointi volumeen /tar
 * Tarball siirretään varmuuskopioinnin valmistuttua Object Storageen (Contabo - S3 compatible)
 
